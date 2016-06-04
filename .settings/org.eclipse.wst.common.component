@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="PProgDist_EAPEJB">
+        <wb-resource deploy-path="/" source-path="/ejbModule" tag="defaultRootSource"/>
+        <property name="java-output-path" value="/PProgDist_EAPEJB/build/classes"/>
+        <property name="ClientProject" value="PProgDist_EAPEJBClient"/>
+        <property name="ClientJARURI" value="PProgDist_EAPEJBClient.jar"/>
+    </wb-module>
+</project-modules>
