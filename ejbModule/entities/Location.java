@@ -38,6 +38,8 @@ public class Location implements Serializable {
 	// ======================================
 	//              Constructeur            
 	// ======================================
+	public Location(){}
+	
 	public Location(Date debut, Date fin, double nbKM, Station station, Vehicule vehicule, Utilisateur utilisateur) {
 		this.debut = debut;
 		this.fin = fin;

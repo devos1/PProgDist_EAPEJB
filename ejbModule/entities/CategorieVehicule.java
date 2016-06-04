@@ -33,6 +33,8 @@ public class CategorieVehicule implements Serializable {
 	// ======================================
 	//              Constructeur            
 	// ======================================
+	public CategorieVehicule(){}
+
 	public CategorieVehicule(String nomCategorie, Currency prixUnitaire, Currency prixKM, Enum unite) {
 		this.nomCategorie = nomCategorie;
 		this.prixUnitaire = prixUnitaire;

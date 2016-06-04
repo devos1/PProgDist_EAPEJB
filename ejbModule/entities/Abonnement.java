@@ -31,8 +31,10 @@ public class Abonnement implements Serializable{
 	private Utilisateur utilisateur;
 
 	// ======================================
-	//              Constructeur            
+	//              Constructeurs            
 	// ======================================
+	public Abonnement() {}
+	
 	public Abonnement(Date dateDebut, Date dateFin, boolean paye, Utilisateur utilisateur) {
 		this.dateDebut = dateDebut;
 		this.dateFin = dateFin;
