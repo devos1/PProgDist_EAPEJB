@@ -3,12 +3,16 @@ package entities;
 import java.util.Collection;
 import java.util.List;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
 public class Station {
 
-	private List places;
+	@Id
+	@GeneratedValue
+	private int id;
 
 	private int posX;
 

@@ -3,12 +3,18 @@ package entities;
 import java.util.Collection;
 import java.util.Date;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 
 @Entity
 public class Vehicule {
 
+	@Id
+	@GeneratedValue
+	private int id;
+	
 	private Date miseEnServiceDt;
 
 	private String couleur;

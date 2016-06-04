@@ -1,13 +1,17 @@
 package entities;
 
 import java.util.Collection;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+
+import javax.annotation.Generated;
+import javax.persistence.*;
 
 @Entity
 public class Utilisateur {
 
+	@Id
+	@GeneratedValue
+	private int id;
+	
 	private String nom;
 
 	private String prenom;
