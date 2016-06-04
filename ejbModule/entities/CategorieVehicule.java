@@ -1,11 +1,10 @@
 package entities;
 
 import java.io.Serializable;
-import java.util.Currency;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
@@ -16,26 +15,26 @@ public class CategorieVehicule implements Serializable {
 	//                 Champs            
 	// ======================================
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 	
 	@Column(nullable = false, length = 40)
 	private String nomCategorie;
 
 	@Column(columnDefinition = "Decimal(5,2)", nullable = false)
-	private Currency prixUnitaire;
+	private Double prixUnitaire;
 	
 	@Column(columnDefinition = "Decimal(5,2)", nullable = false)
-	private Currency prixKM;
+	private Double prixKM;
 
-	private Enum unite;
+	private int unite;
 
 	// ======================================
 	//              Constructeur            
 	// ======================================
 	public CategorieVehicule(){}
 
-	public CategorieVehicule(String nomCategorie, Currency prixUnitaire, Currency prixKM, Enum unite) {
+	public CategorieVehicule(String nomCategorie, Double prixUnitaire, Double prixKM, int unite) {
 		this.nomCategorie = nomCategorie;
 		this.prixUnitaire = prixUnitaire;
 		this.prixKM = prixKM;
@@ -53,27 +52,27 @@ public class CategorieVehicule implements Serializable {
 		this.nomCategorie = nomCategorie;
 	}
 
-	public Currency getPrixUnitaire() {
+	public Double getPrixUnitaire() {
 		return prixUnitaire;
 	}
 
-	public void setPrixUnitaire(Currency prixUnitaire) {
+	public void setPrixUnitaire(Double prixUnitaire) {
 		this.prixUnitaire = prixUnitaire;
 	}
 
-	public Currency getPrixKM() {
+	public Double getPrixKM() {
 		return prixKM;
 	}
 
-	public void setPrixKM(Currency prixKM) {
+	public void setPrixKM(Double prixKM) {
 		this.prixKM = prixKM;
 	}
 
-	public Enum getUnite() {
+	public int getUnite() {
 		return unite;
 	}
 
-	public void setUnite(Enum unite) {
+	public void setUnite(int unite) {
 		this.unite = unite;
 	}
 
