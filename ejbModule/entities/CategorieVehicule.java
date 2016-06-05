@@ -76,5 +76,15 @@ public class CategorieVehicule implements Serializable {
 		this.unite = unite;
 	}
 
+	// ======================================
+	//   Redéfinition de la méthode toString       
+	// ======================================
+	@Override
+	public String toString() {
+		return "CategorieVehicule [id=" + id + ", nomCategorie=" + nomCategorie + ", prixUnitaire=" + prixUnitaire
+				+ ", prixKM=" + prixKM + ", unite=" + unite + "]";
+	}
+
+	
 	
 }
