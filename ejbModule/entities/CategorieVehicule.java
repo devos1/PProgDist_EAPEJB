@@ -17,7 +17,7 @@ public class CategorieVehicule implements Serializable {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	
+
 	@Column(nullable = false, length = 40)
 	private String nomCategorie;
 
@@ -44,6 +44,14 @@ public class CategorieVehicule implements Serializable {
 	// ======================================
 	//           Getters & Setters            
 	// ======================================
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 	public String getNomCategorie() {
 		return nomCategorie;
 	}
