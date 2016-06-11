@@ -34,4 +34,9 @@ public class MobiOsLoService implements IMobiOsLo, IMobiOsLoRemote {
 	public CategorieVehicule getCatVehicule(int id) throws PersistException {
 		return em.find(CategorieVehicule.class, id);
 	}
+
+	@Override
+	public void delCatVehicule(int id) throws PersistException {
+		em.remove(getCatVehicule(id));
+	}
 }

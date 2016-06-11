@@ -3,16 +3,18 @@ package entities;
 import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Enumerated;
 
 @Entity
 public class CategorieVehicule implements Serializable {	
 	private static final long serialVersionUID = 1L;
 
 	// ======================================
-	//                 Champs            
+	//                 Fields            
 	// ======================================
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
@@ -27,14 +29,15 @@ public class CategorieVehicule implements Serializable {
 	@Column(columnDefinition = "Decimal(5,2)", nullable = false)
 	private Double prixKM;
 
-	private int unite;
+	@Enumerated(EnumType.STRING)
+	private Unite unite;
 
 	// ======================================
-	//              Constructeur            
+	//              Constructors            
 	// ======================================
 	public CategorieVehicule(){}
 
-	public CategorieVehicule(String nomCategorie, Double prixUnitaire, Double prixKM, int unite) {
+	public CategorieVehicule(String nomCategorie, Double prixUnitaire, Double prixKM, Unite unite) {
 		this.nomCategorie = nomCategorie;
 		this.prixUnitaire = prixUnitaire;
 		this.prixKM = prixKM;
@@ -76,11 +79,11 @@ public class CategorieVehicule implements Serializable {
 		this.prixKM = prixKM;
 	}
 
-	public int getUnite() {
+	public Unite getUnite() {
 		return unite;
 	}
 
-	public void setUnite(int unite) {
+	public void setUnite(Unite unite) {
 		this.unite = unite;
 	}
 
