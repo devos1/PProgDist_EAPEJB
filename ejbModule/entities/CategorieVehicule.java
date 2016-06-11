@@ -30,14 +30,14 @@ public class CategorieVehicule implements Serializable {
 	private Double prixKM;
 
 	@Enumerated(EnumType.STRING)
-	private Unite unite;
+	private EnumUnite unite;
 
 	// ======================================
 	//              Constructors            
 	// ======================================
 	public CategorieVehicule(){}
 
-	public CategorieVehicule(String nomCategorie, Double prixUnitaire, Double prixKM, Unite unite) {
+	public CategorieVehicule(String nomCategorie, Double prixUnitaire, Double prixKM, EnumUnite unite) {
 		this.nomCategorie = nomCategorie;
 		this.prixUnitaire = prixUnitaire;
 		this.prixKM = prixKM;
@@ -79,11 +79,11 @@ public class CategorieVehicule implements Serializable {
 		this.prixKM = prixKM;
 	}
 
-	public Unite getUnite() {
+	public EnumUnite getUnite() {
 		return unite;
 	}
 
-	public void setUnite(Unite unite) {
+	public void setUnite(EnumUnite unite) {
 		this.unite = unite;
 	}
 

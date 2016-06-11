@@ -1,17 +1,23 @@
 package entities;
 
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Station {
+public class Station implements Serializable {
+	private static final long serialVersionUID = 1L;
 
+	// ======================================
+	//                 Fields            
+	// ======================================
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
 	private int posX;
@@ -30,6 +36,23 @@ public class Station {
 	@OneToMany(mappedBy = "station")
 	private Collection<Location> location;
 
+	// ======================================
+	//              Constructors            
+	// ======================================
+	public Station(){}
+	
+	public Station(int id, int posX, int posY, String nom, String pays, String ville) {
+		this.id = id;
+		this.posX = posX;
+		this.posY = posY;
+		this.nom = nom;
+		this.pays = pays;
+		this.ville = ville;
+	}
+
+	// ======================================
+	//           Getters & Setters            
+	// ======================================
 	public Vehicule louer(Enum typeVehicule) {
 		return null;
 	}
@@ -49,5 +72,5 @@ public class Station {
 	public int cptNbPlaces() {
 		return 0;
 	}
-	
+
 }

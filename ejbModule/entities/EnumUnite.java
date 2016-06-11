@@ -1,6 +1,6 @@
 package entities;
 
-public enum Unite {
+public enum EnumUnite {
 	Minute,
 	Heure,
 	Jour

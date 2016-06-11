@@ -7,6 +7,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 
 import entities.CategorieVehicule;
+import entities.Station;
+import entities.Vehicule;
 
 @Stateful
 public class MobiOsLoService implements IMobiOsLo, IMobiOsLoRemote {
@@ -39,4 +41,38 @@ public class MobiOsLoService implements IMobiOsLo, IMobiOsLoRemote {
 	public void delCatVehicule(int id) throws PersistException {
 		em.remove(getCatVehicule(id));
 	}
+
+	@Override
+	public List<Station> getStations() throws PersistException {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public int getFreePlacesCount() throws PersistException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getFreeByciclesCount() throws PersistException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public int getFreeAutoCount() throws PersistException {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	// ======================================
+	//              VEHICULES            
+	// ======================================
+	@Override
+	public void addVehicule(Vehicule v) throws PersistException {
+		em.merge(v);
+	}
+	
+	
 }

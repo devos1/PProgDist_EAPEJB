@@ -2,7 +2,6 @@ package entities;
 
 import java.io.Serializable;
 import java.util.Date;
-
 import javax.persistence.*;
 
 @Entity
@@ -13,7 +12,7 @@ public class Abonnement implements Serializable{
 	//                 Champs            
 	// ======================================
 	@Id
-	@GeneratedValue
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
 	@Column(nullable = false)

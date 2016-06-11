@@ -16,7 +16,19 @@ public interface IMobiOsLoRemote {
 	public void delCatVehicule(int id) throws PersistException;
 	
 	// ======================================
-	// A FAIRE        
+	// Gestion des véhicules
 	// ======================================
+	public void addVehicule(Vehicule v) throws PersistException;
+	
+	// ======================================
+	// Gestion des stations       
+	// ======================================
+	public List<Station> getStations() throws PersistException;
+	// Nombre de places libres pour pouvoir render le véhicule
+	public int getFreePlacesCount() throws PersistException;
+	// Nombre de vélos disponibles pour pouvoir louer
+	public int getFreeByciclesCount() throws PersistException;
+	// Nombre d'autos disponibles pour pouvoir louer
+	public int getFreeAutoCount() throws PersistException;
 	
 }
