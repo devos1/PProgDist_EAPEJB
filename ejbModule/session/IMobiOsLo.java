@@ -21,6 +21,11 @@ public interface IMobiOsLo {
 	public void addVehicule(Vehicule v) throws PersistException;
 	
 	// ======================================
+	// Gestion des places
+	// ======================================
+	public void addPlace(Place p) throws PersistException;
+	
+	// ======================================
 	// Gestion des stations       
 	// ======================================
 	public List<Station> getStations() throws PersistException;

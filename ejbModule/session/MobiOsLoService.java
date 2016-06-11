@@ -7,6 +7,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.PersistenceException;
 
 import entities.CategorieVehicule;
+import entities.Place;
 import entities.Station;
 import entities.Vehicule;
 
@@ -74,5 +75,12 @@ public class MobiOsLoService implements IMobiOsLo, IMobiOsLoRemote {
 		em.merge(v);
 	}
 	
+	// ======================================
+	//              PLACES           
+	// ======================================
+	@Override
+	public void addPlace(Place p) throws PersistException {
+		em.merge(p);
+	}
 	
 }
