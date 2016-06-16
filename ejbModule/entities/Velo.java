@@ -1,16 +1,53 @@
 package entities;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import java.io.Serializable;
 
-public class Velo {
+import javax.persistence.Entity;
 
-	@Id
-	@GeneratedValue
-	private int id;
+@SuppressWarnings("serial")
+@Entity
+public class Velo extends Vehicule implements Serializable {
+
+	// ======================================
+	//                 Fields            
+	// ======================================
 	
-	private Enum entrainement;
+	// REMARQUE : Pas d'ID car héritage
+	
+	private String entrainement;
 
 	private int categorie;
+	
+	// ======================================
+	//              Constructors            
+	// ======================================
+	public Velo(){}
+
+	public Velo(String entrainement, int categorie) {
+		this.entrainement = entrainement;
+		this.categorie = categorie;
+	}
+
+	// ======================================
+	//           Getters & Setters            
+	// ======================================
+	public String getEntrainement() {
+		return entrainement;
+	}
+
+	public void setEntrainement(String entrainement) {
+		this.entrainement = entrainement;
+	}
+
+	public int getCategorie() {
+		return categorie;
+	}
+
+	public void setCategorie(int categorie) {
+		this.categorie = categorie;
+	}
+	
+	
+	
 	
 }

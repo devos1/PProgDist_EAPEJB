@@ -7,6 +7,11 @@ import javax.persistence.EnumType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
+
 import javax.persistence.Enumerated;
 
 @Entity
@@ -20,7 +25,8 @@ public class CategorieVehicule implements Serializable {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
 
-	@Column(nullable = false, length = 40)
+	@Column()
+	@NotNull @NotEmpty @Size(max = 30)
 	private String nomCategorie;
 
 	@Column(columnDefinition = "Decimal(5,2)", nullable = false)

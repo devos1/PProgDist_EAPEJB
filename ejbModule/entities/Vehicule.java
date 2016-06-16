@@ -3,8 +3,6 @@ package entities;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -12,12 +10,16 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Inheritance;
+import javax.persistence.InheritanceType;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Past;
 
 @Entity
+@Inheritance(strategy = InheritanceType.JOINED)
 public class Vehicule implements Serializable{
 	private static final long serialVersionUID = 1L;
 
@@ -30,6 +32,7 @@ public class Vehicule implements Serializable{
 	
 	@Column(nullable = false)
 	@Temporal(TemporalType.TIMESTAMP)
+	@Past // Valide que la date est dans le passé
 	private Calendar miseEnServiceDt;
 
 	private String couleur;
