@@ -71,7 +71,6 @@ public class Place implements Serializable{
 	}
 
 	public void setVehicule(Vehicule vehicule) {
-		System.out.println("Entré dans le setVehicule");
 		if (vehicule == null) {
 			this.vehicule = null;
 		}else {

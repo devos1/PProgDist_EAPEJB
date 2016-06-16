@@ -65,6 +65,17 @@ public class MobiOsLoService implements IMobiOsLo, IMobiOsLoRemote {
 		em.merge(v);
 	}	
 	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Vehicule> getVehicules() throws PersistException {
+		try {
+			return em.createQuery("SELECT v FROM Vehicule v").getResultList();
+		} catch (PersistenceException pe) {
+			pe.printStackTrace();
+			throw new PersistenceException(pe.getMessage());
+		}
+	}
+	
 	// ======================================
 	//              PLACES           
 	// ======================================

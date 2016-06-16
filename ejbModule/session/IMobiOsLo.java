@@ -21,6 +21,7 @@ public interface IMobiOsLo {
 	public void addVehicule(Vehicule v) throws PersistException;
 	public Vehicule getVehicule(int id) throws PersistException;
 	public void attributePlaceToVehicule(Vehicule v, Place p) throws PersistException;
+	public List<Vehicule> getVehicules() throws PersistException;
 	
 	// ======================================
 	// Gestion des places
