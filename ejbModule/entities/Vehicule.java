@@ -49,6 +49,9 @@ public class Vehicule implements Serializable{
 	private Utilisateur utilisateur;
 
 	@OneToOne()
+	private CategorieVehicule categorieVehicule;
+	
+	@OneToOne()
 	private Place place;
 
 	@OneToMany(mappedBy = "vehicule")
@@ -63,7 +66,6 @@ public class Vehicule implements Serializable{
 	public Vehicule(){}
 
 	public Vehicule(Calendar miseEnServiceDt, String couleur, EnumCatPrix catPrix, EnumMarque marque, String modele) {
-		this.id = id;
 		this.miseEnServiceDt = miseEnServiceDt;
 		this.couleur = couleur;
 		this.catPrix = catPrix;
@@ -152,5 +154,11 @@ public class Vehicule implements Serializable{
 
 	public void setLocation(Collection<Location> location) {
 		this.location = location;
+	}
+
+	@Override
+	public String toString() {
+		return "Vehicule [id=" + id + ", miseEnServiceDt=" + miseEnServiceDt + ", couleur=" + couleur + ", catPrix="
+				+ catPrix + ", marque=" + marque + ", modele=" + modele + "]";
 	}
 }

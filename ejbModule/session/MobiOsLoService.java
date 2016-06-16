@@ -17,6 +17,9 @@ public class MobiOsLoService implements IMobiOsLo, IMobiOsLoRemote {
 	@PersistenceContext
 	private EntityManager em;
 
+	// ======================================
+	//        CATEGORIES VEHICULES            
+	// ======================================
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<CategorieVehicule> getCatVehicules() throws PersistException {
@@ -43,10 +46,50 @@ public class MobiOsLoService implements IMobiOsLo, IMobiOsLoRemote {
 		em.remove(getCatVehicule(id));
 	}
 
+	// ======================================
+	//              VEHICULES            
+	// ======================================
+	@Override
+	public void addVehicule(Vehicule v) throws PersistException {
+		em.merge(v);
+	}
+	
+	@Override
+	public Vehicule getVehicule(int id) throws PersistException {
+		return em.find(Vehicule.class, id);
+	}
+	
+	@Override
+	public void attributePlaceToVehicule(Vehicule v, Place p) throws PersistException {
+		v.setPlace(p);
+		em.merge(v);
+	}	
+	
+	// ======================================
+	//              PLACES           
+	// ======================================
+	@Override
+	public void addPlace(Place p) throws PersistException {
+		em.merge(p);
+	}
+
+	// ======================================
+	//             STATIONS           
+	// ======================================
+	@Override
+	public void addStation(Station s) throws PersistException {
+		em.merge(s);
+	}
+	
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Station> getStations() throws PersistException {
-		// TODO Auto-generated method stub
-		return null;
+		try {
+			return em.createQuery("SELECT s FROM Station s").getResultList();
+		} catch (PersistenceException pe) {
+			pe.printStackTrace();
+			throw new PersistenceException(pe.getMessage());
+		}
 	}
 
 	@Override
@@ -67,20 +110,15 @@ public class MobiOsLoService implements IMobiOsLo, IMobiOsLoRemote {
 		return 0;
 	}
 
-	// ======================================
-	//              VEHICULES            
-	// ======================================
 	@Override
-	public void addVehicule(Vehicule v) throws PersistException {
+	public Station getStation(int id) throws PersistException {
+		return em.find(Station.class, id);
+	}
+
+	@Override
+	public void removeVehicule(int id) throws PersistException {
+		Vehicule v  = em.find(Vehicule.class, id);
+		v.setPlace(null);
 		em.merge(v);
 	}
-	
-	// ======================================
-	//              PLACES           
-	// ======================================
-	@Override
-	public void addPlace(Place p) throws PersistException {
-		em.merge(p);
-	}
-	
 }

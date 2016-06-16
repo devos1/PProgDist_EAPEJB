@@ -2,6 +2,7 @@ package entities;
 
 import java.io.Serializable;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
@@ -9,6 +10,7 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
@@ -27,10 +29,13 @@ public class Place implements Serializable{
 	@Enumerated(EnumType.STRING)
 	private EnumTypePlace type;
 
-	@OneToOne(mappedBy = "place")
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "place")
+	//@OneToOne()
 	private Vehicule vehicule;
 
 	@ManyToOne
+	@JoinColumn()
+	//@JoinColumn(nullable = false, updatable = true, insertable = true)
 	private Station station;
 	
 	// ======================================
@@ -66,7 +71,12 @@ public class Place implements Serializable{
 	}
 
 	public void setVehicule(Vehicule vehicule) {
-		this.vehicule = vehicule;
+		System.out.println("Entré dans le setVehicule");
+		if (vehicule == null) {
+			this.vehicule = null;
+		}else {
+			this.vehicule = vehicule;			
+		}
 	}
 
 	public Station getStation() {
